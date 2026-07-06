@@ -1,12 +1,15 @@
-import { test, expect } from '@playwright/test';
-import { LoginPage } from '../../pages/login';
-import { ProductsPage } from '../../pages/products';
+const { test, expect } = require('@playwright/test');
+const { LoginPage } = require('../../pages/login');
+const { ProductsPage } = require('../../pages/products');
 
-test('add product to cart', async ({ page }) => {
-
+test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.gotoLoginPage();
     await loginPage.login('standard_user', 'secret_sauce');
+    await loginPage.expectHomePageIsVisible();
+});
+
+test('add product to cart', async ({ page }) => {
 
     const productsPage = new ProductsPage(page);
     await productsPage.gotoProductsPage();

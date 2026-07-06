@@ -32,9 +32,11 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     launchOptions: {
+      args: ['--start-maximized'],
       slowMo: 900,
     },
     trace: 'on-first-retry',
+    viewport: null,
   },
 
   /* Configure projects for major browsers */

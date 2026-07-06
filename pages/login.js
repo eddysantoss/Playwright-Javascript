@@ -20,7 +20,7 @@ exports.LoginPage = class LoginPage {
         await this.loginButton.click();
     }
 
-    async expectHomePageisVisible() {
+    async expectHomePageIsVisible() {
         await expect(this.page.locator('.inventory_list')).toBeVisible();;
     }
 }
